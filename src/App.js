@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import SignUp from './components/Sign up/SignUp'
 
 function App() {
   return (
-    <div className="App">
-      <h1>React firebase Authentication</h1>
+    <div>
+      <SignUp />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
