@@ -5,7 +5,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   updateProfile,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
 import { app } from "../../firebaseConfig";
 import { useState, useEffect } from "react";
@@ -68,7 +68,8 @@ function SignUp() {
         // Signed in
         updateProfile(auth.currentUser, {
           displayName: name,
-          photoURL: "https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg",
+          photoURL:
+            "https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg",
         }).then(() => {
           // Profile updated!
           navigate("/");
@@ -84,14 +85,13 @@ function SignUp() {
     e.preventDefault();
   };
 
-
-  useEffect(() =>{
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-            navigate('/')
-        }
-      });
-   });
+      if (user) {
+        navigate("/");
+      }
+    });
+  });
 
   return (
     <div className="App">
@@ -129,7 +129,7 @@ function SignUp() {
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
       <p>
-        Already have an account. <Link to="/login">Log In</Link>{" "}
+        Already have an account? <Link to="/login">Log In</Link>{" "}
       </p>
       {isLogIn ? (
         <button className="btn" onClick={handelSignOut}>
